@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello SuperAdminController!
+{% endblock %}
+
+{% block body %}
+{% include 'layout.html.twig' %}
+
+	<style>
+		.example-wrapper {
+			margin: 1em auto;
+			max-width: 800px;
+			width: 95%;
+			font: 18px / 1.5 sans-serif;
+		}
+		.example-wrapper code {
+			background: #F5F5F5;
+			padding: 2px 6px;
+		}
+	</style>
+
+	<div class="example-wrapper">
+		<form action="/superadmin/search/" method="post">
+			<input type="search" name="search" placeholder="Username">
+			<input type="submit" value="Search">
+		</form>
+		<table>
+			<tr>
+				<td>Nom de l'admin</td>
+				<td>Ajouter les droits</td>
+			</tr>
+			{% for item in result %}
+				<tr>
+					{% set email = item.email|split('@') %}
+					<td>{{ email[0] }}</td>
+					<td>
+						<a href='/superadmin/add/{{item.id}}'>Ajouter</a>
+					</td>
+				</tr>
+			{% endfor %}
+		</table>
+	</div>
+{% endblock %}

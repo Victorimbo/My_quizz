@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<style>
+    .chart-container {
+      margin-bottom: 100px;
+    }
+    </style>
+    <div class="chart-container" style="width: 400px; height: 300px">
+        {{ render_chart(chart) }}
+    </div>
+    <a href="/charts/quizz">See detailed quizz stats</a>
+{% endblock %}

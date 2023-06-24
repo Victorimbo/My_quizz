@@ -1,0 +1,3 @@
+<?php //App%255CController%255CHistoryController%2523sessionHistory
+
+return [PHP_INT_MAX, []];

@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello SuperAdminController!
+{% endblock %}
+
+{% block body %}
+	<style>
+		.example-wrapper {
+			margin: 1em auto;
+			max-width: 800px;
+			width: 95%;
+			font: 18px / 1.5 sans-serif;
+		}
+		.example-wrapper code {
+			background: #F5F5F5;
+			padding: 2px 6px;
+		}
+	</style>
+
+	<div class="example-wrapper">
+		<table>
+			<tr>
+				<td>Nom du user</td>
+				<td>Envoyer un mail</td>
+				<td>Envoyer un mail</td>
+				<td>Modifier le compte</td>
+				<td>Supprimer le compte</td>
+			</tr>
+			{% for item in data %}
+				<tr>
+					{% set email = item.email|split('@') %}
+					<td>{{ email[0] }}</td>
+					<td>
+						<a href='/admin/user/old/{{item.id}}'>Quizz passé</a>
+					</td>
+					<td>
+					<a href='/admin/user/new/{{item.id}}'>Quizz pas passé</a>
+				</td>
+				<td>
+				<a href='/admin/user/modif/{{item.id}}'>Modifier l'utilisateur</a>
+			</td>
+			<td>
+			<a href='/admin/user/delete/{{item.id}}'>Supprimer le compte</a>
+		</td>
+				</tr>
+			{% endfor %}
+		</table>
+	</div>
+{% endblock %}

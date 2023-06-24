@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello SuperAdminController!
+{% endblock %}
+
+{% block body %}
+	<style>
+		.example-wrapper {
+			margin: 1em auto;
+			max-width: 800px;
+			width: 95%;
+			font: 18px / 1.5 sans-serif;
+		}
+		.example-wrapper code {
+			background: #F5F5F5;
+			padding: 2px 6px;
+		}
+	</style>
+
+	<div class="example-wrapper">
+	<form action="/user/question/addto/" method="post">
+	<input type="hidden" name="id" value="{{data.id}}">
+	<input type="text" placeholder="Question" name="question" required>
+	<p></p>
+	<input type="text" placeholder= "Reponse1" name="reponse1" required>
+	<p></p>
+	<input type="text" placeholder= "Reponse2" name="reponse2" required>
+	<p></p>
+	<input type="text" placeholder= "Reponse3" name="reponse3" required>
+	<p></p>
+	<input type="number" name="expected" min="1" max="3" required>
+	<input type="submit">
+	</form>
+	</div>
+{% endblock %}

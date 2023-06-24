@@ -1,0 +1,15 @@
+{% block title %}Créer un utilisateur
+{% endblock %}
+
+{% block body %}
+{% if error is defined %}
+<p>{{error }}</p>
+{% endif %}
+
+	<form action="/admin/user/added" method="post">
+		<p></p><input type="email" placeholder="Email" name="email" id="">
+		<p></p><input type="password" placeholder="Password" name="password" minlength="6">
+		<p></p><input type="submit">
+	</form>
+
+{% endblock %}

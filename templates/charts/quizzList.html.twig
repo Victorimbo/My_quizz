@@ -1,0 +1,8 @@
+{% block QuizzList %}
+
+    {% for x in quizz %}
+    <p>
+<a href="{{ path('chartsQuizz', { 'id': x.id }) }}">{{ x.name }}</a>
+</p>
+    {% endfor %}
+{% endblock %}

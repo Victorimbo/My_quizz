@@ -1,0 +1,16 @@
+{# {% include 'layout.html.twig' %} #}
+{% block Questions %}
+    <h2>Answer the questions</h2>
+        {% for x in questionPage %}
+    <p>Score :{{ score }}</p>
+    <p>{{ x.question }}</p>
+                {% for y in response %}
+                        <form action="/quizz/{{ id }}" method="post">
+                            <input type="hidden" name="firstresult" value="{{ idquestion }}">
+                            <input type="hidden" name="response" value="{{ y.id }}">
+                            <input type="hidden" name="score" value="{{ score }}">
+                            <input type="submit" value="{{ y.reponse }}">
+                        </form>
+            {% endfor %}
+        {% endfor %}
+{% endblock %}

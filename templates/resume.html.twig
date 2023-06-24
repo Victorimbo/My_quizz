@@ -1,0 +1,7 @@
+{% block Resume %}
+        <a href="/user">Go to main page</a>
+        <a href="/quizz">Try a new quizz</a>
+        {% for nameCategory, history in app.session %}
+            {{ nameCategory }} = {{ history }}
+        {% endfor %}
+{% endblock %}

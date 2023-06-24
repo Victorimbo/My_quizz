@@ -1,0 +1,10 @@
+{% if data is defined %}
+{% include 'layout.html.twig' %}
+{% endif %}
+{% block name %}
+	<h2>Choose your category</h2>
+	<p>Name</p>
+	{% for x in category %}
+		<a href="quizz/{{ x.id }}?page=1">{{ x.name }}</p>
+	{% endfor %}
+{% endblock %}

@@ -1,0 +1,80 @@
+<head>
+	{% block stylesheets %}
+		<link type="text/css" rel="stylesheet" href="{{ asset('css/main.css') }}"/>
+	{% endblock %}
+</head>
+<header>
+	<div class="containerheader">
+		<h1 class="flex">Tquizz</h1>
+
+		<nav class="flex">
+			<ul>
+				<li style="position:absolute; right: 22%;">
+					<strong>
+						<a href="/quizz/" style="text-decoration:none; color: red;">Jouer</a>
+					</strong>
+				</li>
+				<li class="dropdown">
+					<span>
+						<strong>{{ data.name }}</strong>
+					</span>
+					<ul class="dropdown-content">
+						<li>
+							<a href="/profile/" {{data.id }}>
+								My profile</a>
+						</li>
+						<li>
+								<a href="/user/quizz/create">Ajouter un quizz</a>
+							</li>
+						<li>
+							<a href="/user/edit/">Edit profile</a>
+						</li>
+						{% if data.roles == "ROLE_SUPERADMIN" %}
+							<li>
+								<a href="/superadmin/">Voir les admins</a>
+							</li>
+							<li>
+								<a href="/superadmin/add/">Ajouter un admin</a>
+							</li>
+						{% endif %}
+						{% if data.roles == "ROLE_ADMIN" %}
+							<li>
+								<a href="/admin/">Voir les admins</a>
+							</li>
+							<li>
+								<a href="/admin/add/">Ajouter un admin</a>
+							</li>
+						{% endif %}
+						{% if data.roles == "ROLE_ADMIN" or data.roles == "ROLE_SUPERADMIN" %}
+							<li>
+								<a href="/charts/">Statistiques de connexion</a>
+							</li>
+							<li>
+								<a href="/charts/quizz">Statistiques des quizz</a>
+							</li>
+							<li>
+								<a href="/admin/emails/">Envoyer un email</a>
+							</li>
+							<li>
+								<a href="/admin/categorie/addform">Ajouter une catégorie</a>
+							</li>
+							<li>
+								<a href="/admin/categories/">Gérer les categories</a>
+							</li>
+							<li>
+								<a href="/admin/user/">Gérer les utilisateurs</a>
+							</li>
+							<li>
+								<a href="/admin/user/add">Créer un utilisateur</a>
+							</li>
+						{% endif %}
+						<li>
+							<a href="/logout">Logout</a>
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</nav>
+	</div>
+</header>
+<hr class="style1">

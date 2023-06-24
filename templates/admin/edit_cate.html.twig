@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello SuperAdminController!
+{% endblock %}
+
+{% block body %}
+	<style>
+		.example-wrapper {
+			margin: 1em auto;
+			max-width: 800px;
+			width: 95%;
+			font: 18px / 1.5 sans-serif;
+		}
+		.example-wrapper code {
+			background: #F5F5F5;
+			padding: 2px 6px;
+		}
+	</style>
+
+	<div class="example-wrapper">
+		<form action="/admin/categories/edit/" method="post">
+			<input type="hidden" name="id" value="{{data.id}}">
+
+			<p>
+				Nom du quizz :<input type="text" name="name" value="{{data.name}}"></p>
+			<input type="submit">
+
+		</form>
+
+		<div class="example-wrapper">
+			<table>
+				<tr>
+					<td>Name of question</td>
+					<td>Edit</td>
+					<td>Delete</td>
+				</tr>
+				{% for item in questions %}
+					<tr>
+						<td>{{ item.question }}</td>
+						<td>
+							<a href="/admin/edit/question/{{item.id}}">Edit</a>
+						</td>
+						<td>
+							<a href='/admin/delete/question/{{ item.id }}'>Delete</a>
+						</td>
+
+					</tr>
+				{% endfor %}
+			</table>
+		</div>
+
+	</div>
+{% endblock %}
